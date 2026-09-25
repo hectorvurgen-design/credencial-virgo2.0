@@ -1,0 +1,88 @@
+[
+    {
+        "id": "VI-001",
+        "nombre": "Héctor Virgen Ríos",
+        "puesto": "Ingeniero de Pruebas",
+        "empresa": "Virgo Ingenieros Electromecánicos",
+        "vigencia": "2026-12-31",
+        "estado": "VIGENTE",
+        "tipo": "Personal autorizado",
+        "foto": "HVR.jpg"
+    },
+{
+ "id": "VI-002",
+        "nombre": "Manuel Ignacio Navarro Reyes",
+        "puesto": "Ingeniero de Pruebas",
+        "empresa": "Virgo Ingenieros Electromecánicos",
+        "vigencia": "2026-12-31",
+        "estado": "VIGENTE",
+        "tipo": "Personal autorizado",
+        "foto": "MINR.jpg"
+},
+{
+ "id": "VI-003",
+        "nombre": "Ricardo Martinez Aguilar",
+        "puesto": "Ingeniero de Pruebas",
+        "empresa": "Virgo Ingenieros Electromecánicos",
+        "vigencia": "2026-12-31",
+        "estado": "VIGENTE",
+        "tipo": "Personal autorizado",
+        "foto": "RMA.jpg"
+},
+{
+ "id": "VI-003",
+        "nombre": "Manuel Ignacio Navarro Reyes",
+        "puesto": "Ingeniero de Pruebas",
+        "empresa": "Virgo Ingenieros Electromecánicos",
+        "vigencia": "2026-12-31",
+        "estado": "VIGENTE",
+        "tipo": "Personal autorizado",
+        "foto": "foto2.jpg"
+},
+{
+ "id": "VI-002",
+        "nombre": "Manuel Ignacio Navarro Reyes",
+        "puesto": "Ingeniero de Pruebas",
+        "empresa": "Virgo Ingenieros Electromecánicos",
+        "vigencia": "2026-12-31",
+        "estado": "VIGENTE",
+        "tipo": "Personal autorizado",
+        "foto": "foto2.jpg"
+},
+{
+ "id": "VI-002",
+        "nombre": "Manuel Ignacio Navarro Reyes",
+        "puesto": "Ingeniero de Pruebas",
+        "empresa": "Virgo Ingenieros Electromecánicos",
+        "vigencia": "2026-12-31",
+        "estado": "VIGENTE",
+        "tipo": "Personal autorizado",
+        "foto": "foto2.jpg"
+},
+{
+ "id": "VI-002",
+        "nombre": "Manuel Ignacio Navarro Reyes",
+        "puesto": "Ingeniero de Pruebas",
+        "empresa": "Virgo Ingenieros Electromecánicos",
+        "vigencia": "2026-12-31",
+        "estado": "VIGENTE",
+        "tipo": "Personal autorizado",
+        "foto": "foto2.jpg"
+},
+{
+ "id": "VI-002",
+        "nombre": "Manuel Ignacio Navarro Reyes",
+        "puesto": "Ingeniero de Pruebas",
+        "empresa": "Virgo Ingenieros Electromecánicos",
+        "vigencia": "2026-12-31",
+        "estado": "VIGENTE",
+        "tipo": "Personal autorizado",
+        "foto": "foto2.jpg"
+}
+
+
+
+
+
+
+]
