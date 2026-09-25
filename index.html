@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<title>Credencial Digital - Virgo Ingenieros</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+
+    margin: 0;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    min-height: 100vh;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   VIDEO DE FONDO
+========================= */
+
+#videoFondo {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    z-index: -2;
+}
+
+
+/* =========================
+   CAPA OSCURA
+========================= */
+
+.capaOscura {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+        rgba(0, 15, 35, 0.45);
+
+    z-index: -1;
+}
+
+
+/* =========================
+   CONTENEDOR
+========================= */
+
+.contenedor {
+
+    min-height: 100vh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 25px;
+}
+
+
+/* =========================
+   CREDENCIAL
+========================= */
+
+.credencial {
+
+    width: 100%;
+
+    max-width: 390px;
+
+    background:
+        rgba(255,255,255,0.95);
+
+    border-radius: 25px;
+
+    padding: 25px;
+
+    text-align: center;
+
+    box-shadow:
+        0 15px 40px
+        rgba(0,0,0,0.35);
+}
+
+
+/* =========================
+   LOGO
+========================= */
+
+.logo {
+
+    width: 150px;
+
+    max-width: 70%;
+
+    margin-bottom: 10px;
+}
+
+
+/* =========================
+   FOTO
+========================= */
+
+.foto {
+
+    width: 145px;
+
+    height: 145px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 5px solid white;
+
+    box-shadow:
+        0 5px 20px
+        rgba(0,0,0,0.25);
+
+    margin:
+        10px auto 15px;
+}
+
+
+/* =========================
+   NOMBRE
+========================= */
+
+.nombre {
+
+    font-size: 25px;
+
+    font-weight: bold;
+
+    color: #12233f;
+
+    margin: 5px 0;
+}
+
+
+/* =========================
+   PUESTO
+========================= */
+
+.puesto {
+
+    font-size: 17px;
+
+    color: #555;
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   DATOS
+========================= */
+
+.datos {
+
+    text-align: left;
+
+    background: #f3f5f8;
+
+    border-radius: 15px;
+
+    padding: 15px;
+}
+
+
+.dato {
+
+    margin-bottom: 10px;
+}
+
+
+.dato:last-child {
+
+    margin-bottom: 0;
+}
+
+
+.etiqueta {
+
+    font-size: 12px;
+
+    color: #777;
+
+    font-weight: bold;
+
+    text-transform: uppercase;
+}
+
+
+.valor {
+
+    font-size: 15px;
+
+    color: #222;
+
+    margin-top: 2px;
+}
+
+
+/* =========================
+   ESTADO
+========================= */
+
+.estado {
+
+    margin:
+        18px auto 5px;
+
+    display: inline-block;
+
+    padding:
+        9px 20px;
+
+    border-radius: 30px;
+
+    color: white;
+
+    font-weight: bold;
+
+    font-size: 14px;
+}
+
+
+/* VERDE */
+
+.estado.vigente {
+
+    background: #168a45;
+
+}
+
+
+/* ROJO */
+
+.estado.vencida {
+
+    background: #c62828;
+
+}
+
+
+/* =========================
+   PIE
+========================= */
+
+.pie {
+
+    margin-top: 18px;
+
+    font-size: 12px;
+
+    color: #777;
+}
+
+
+/* =========================
+   ERROR
+========================= */
+
+.error {
+
+    color: #b00020;
+
+    font-weight: bold;
+
+    font-size: 20px;
+
+    margin-bottom: 10px;
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     VIDEO
+========================= -->
+
+<video
+    id="videoFondo"
+    autoplay
+    muted
+    loop
+    playsinline>
+
+    <source
+        src="fondo.mp4"
+        type="video/mp4">
+
+</video>
+
+
+<div class="capaOscura"></div>
+
+
+<!-- =========================
+     CONTENIDO
+========================= -->
+
+<div class="contenedor">
+
+    <div
+        class="credencial"
+        id="credencial">
+
+
+        <img
+            src="logo.png"
+            class="logo"
+            alt="Virgo Ingenieros">
+
+
+        <img
+            id="foto"
+            class="foto"
+            src=""
+            alt="Fotografía del empleado">
+
+
+        <div
+            id="nombre"
+            class="nombre">
+
+            Cargando...
+
+        </div>
+
+
+        <div
+            id="puesto"
+            class="puesto">
+
+        </div>
+
+
+        <div class="datos">
+
+
+            <div class="dato">
+
+                <div class="etiqueta">
+                    Empresa
+                </div>
+
+                <div
+                    id="empresa"
+                    class="valor">
+
+                </div>
+
+            </div>
+
+
+            <div class="dato">
+
+                <div class="etiqueta">
+                    ID
+                </div>
+
+                <div
+                    id="idEmpleado"
+                    class="valor">
+
+                </div>
+
+            </div>
+
+
+            <div class="dato">
+
+                <div class="etiqueta">
+                    Vigencia
+                </div>
+
+                <div
+                    id="vigencia"
+                    class="valor">
+
+                </div>
+
+            </div>
+
+
+            <div class="dato">
+
+                <div class="etiqueta">
+                    Tipo
+                </div>
+
+                <div
+                    id="tipo"
+                    class="valor">
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <div
+            id="estado"
+            class="estado">
+
+        </div>
+
+
+        <div class="pie">
+
+            Virgo Ingenieros Electromecánicos
+
+        </div>
+
+
+    </div>
+
+</div>
+
+
+
+<script>
+
+
+/* ========================================
+   CARGAR EMPLEADO
+======================================== */
+
+async function cargarEmpleado() {
+
+
+    try {
+
+
+        /* Obtener ID desde la URL */
+
+        const parametros =
+            new URLSearchParams(
+                window.location.search
+            );
+
+
+        const id =
+            parametros.get("id");
+
+
+        /* Si no existe ID */
+
+        if (!id) {
+
+            mostrarError(
+                "No se especificó una credencial."
+            );
+
+            return;
+        }
+
+
+        /* Cargar JSON */
+
+        const respuesta =
+            await fetch(
+                "empleados.json"
+            );
+
+
+        if (!respuesta.ok) {
+
+            throw new Error(
+                "No se pudo cargar empleados.json"
+            );
+
+        }
+
+
+        const empleados =
+            await respuesta.json();
+
+
+        /* Buscar empleado */
+
+        const empleado =
+            empleados.find(
+                persona =>
+                    persona.id.toUpperCase()
+                    ===
+                    id.toUpperCase()
+            );
+
+
+        /* Si no existe */
+
+        if (!empleado) {
+
+            mostrarError(
+                "Credencial no encontrada."
+            );
+
+            return;
+        }
+
+
+        /* ====================================
+           MOSTRAR INFORMACIÓN
+        ==================================== */
+
+
+        document.getElementById(
+            "nombre"
+        ).textContent =
+            empleado.nombre;
+
+
+        document.getElementById(
+            "puesto"
+        ).textContent =
+            empleado.puesto;
+
+
+        document.getElementById(
+            "empresa"
+        ).textContent =
+            empleado.empresa;
+
+
+        document.getElementById(
+            "idEmpleado"
+        ).textContent =
+            empleado.id;
+
+
+        document.getElementById(
+            "vigencia"
+        ).textContent =
+            formatearFecha(
+                empleado.vigencia
+            );
+
+
+        document.getElementById(
+            "tipo"
+        ).textContent =
+            empleado.tipo;
+
+
+        /* FOTO */
+
+        document.getElementById(
+            "foto"
+        ).src =
+            empleado.foto;
+
+
+        /* ====================================
+           COMPROBAR VIGENCIA
+        ==================================== */
+
+        comprobarVigencia(
+            empleado.vigencia
+        );
+
+
+    }
+
+    catch (error) {
+
+
+        console.error(error);
+
+
+        mostrarError(
+            "No se pudo cargar la credencial."
+        );
+
+    }
+
+}
+
+
+
+/* ========================================
+   COMPROBAR VIGENCIA
+======================================== */
+
+function comprobarVigencia(
+    fechaVencimiento
+) {
+
+
+    const hoy =
+        new Date();
+
+
+    /* Fecha de vencimiento */
+
+    const vencimiento =
+        new Date(
+            fechaVencimiento
+            + "T23:59:59"
+        );
+
+
+    const elemento =
+        document.getElementById(
+            "estado"
+        );
+
+
+    /* ====================================
+       CREDENCIAL VIGENTE
+    ==================================== */
+
+    if (
+        hoy <= vencimiento
+    ) {
+
+
+        elemento.textContent =
+            "✓ CREDENCIAL VIGENTE";
+
+
+        elemento.classList.add(
+            "vigente"
+        );
+
+
+    }
+
+
+    /* ====================================
+       CREDENCIAL VENCIDA
+    ==================================== */
+
+    else {
+
+
+        elemento.textContent =
+            "✕ CREDENCIAL VENCIDA";
+
+
+        elemento.classList.add(
+            "vencida"
+        );
+
+    }
+
+}
+
+
+
+/* ========================================
+   FORMATEAR FECHA
+======================================== */
+
+function formatearFecha(
+    fecha
+) {
+
+
+    const partes =
+        fecha.split("-");
+
+
+    return (
+        partes[2]
+        + "/"
+        + partes[1]
+        + "/"
+        + partes[0]
+    );
+
+}
+
+
+
+/* ========================================
+   MOSTRAR ERROR
+======================================== */
+
+function mostrarError(
+    mensaje
+) {
+
+
+    document.getElementById(
+        "credencial"
+    ).innerHTML = `
+
+        <img
+            src="logo.png"
+            class="logo"
+            alt="Virgo Ingenieros">
+
+        <div class="error">
+            ${mensaje}
+        </div>
+
+        <div>
+            Verifica el código
+            de la credencial.
+        </div>
+
+    `;
+
+}
+
+
+
+/* ========================================
+   INICIAR
+======================================== */
+
+cargarEmpleado();
+
+</script>
+
+
+</body>
+
+</html>
